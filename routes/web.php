@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MpesaContrller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SmsController;
 
@@ -37,6 +38,15 @@ Route::controller(UserController::class)->group(function (){
     // send sms
     Route::get('/sendsms',[UserController::class,"sendsms"]);
 
+    // swsaving 
+    Route::get('/swsaving',[UserController::class,"swsaving"]);
+
+    // mbr save
+    Route::post('/mbrsave', [UserController::class, 'mbrsave'])->name('user.saving');
+
+    // total saving count
+    Route::get('/total-savings', [UserController::class, 'totalSavings'])->name('total-savings');
+
     
 });
 
@@ -63,8 +73,14 @@ Route::controller(AdminController::class)->group(function (){
     // delete saving
     Route::get('/deletesaving/{id}',[AdminController::class,"deletesaving"]);
 
+    // update view saving
+    Route::get('/updatesaving/{id}',[AdminController::class,"updatesaving"]);
 
+    // upd saving
+    Route::post('/updsaving/{id}', [AdminController::class,"updsaving"]);
 
+    // save
+    Route::post('/save/{id}',[AdminController::class,"save"]);
 
     // show members
     Route::get('/members',[AdminController::class,"members"]);
@@ -73,6 +89,13 @@ Route::controller(AdminController::class)->group(function (){
     Route::post('/addmembers',[AdminController::class,"addmembers"]);
 
 });
+
+
+Route::controller(MpesaContrller::class)->group(function (){
+    Route::get('/mpesa',[MpesaContrller::class,"mpesa"]);
+
+});
+
 
 
 

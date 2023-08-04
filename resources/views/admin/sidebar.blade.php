@@ -6,17 +6,24 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('mbr_saving')}}">
+              <i class="mdi mdi-chart-pie menu-icon"></i>
+              <span class="menu-title">Members Savings</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('m_saving')}}">
               <i class="mdi mdi-chart-pie menu-icon"></i>
-              <span class="menu-title">Members Savings</span>
+              <span class="menu-title">Add Savings Module</span>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{ url('show_savings')}}">
               <i class="mdi mdi-chart-pie menu-icon"></i>
-              <span class="menu-title">Show Savings</span>
+              <span class="menu-title">Show Savings Module</span>
             </a>
           </li>
 

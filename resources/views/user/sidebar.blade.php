@@ -9,7 +9,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('saving')}}">
               <i class="mdi mdi-chart-pie menu-icon"></i>
-              <span class="menu-title">Saving</span>
+              <span class="menu-title">My Savings</span>
             </a>
           </li>
           <li class="nav-item">
@@ -29,6 +29,13 @@
             <a class="nav-link" href="{{ url('sendsms')}}">
               <i class="mdi mdi-emoticon menu-icon"></i>
               <span class="menu-title">SMS Confirmation</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('mpesa')}}">
+              <i class="mdi mdi-emoticon menu-icon"></i>
+              <span class="menu-title">M-Pesa API</span>
             </a>
           </li>
         </ul>

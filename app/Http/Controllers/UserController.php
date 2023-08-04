@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mbrsave;
+use App\Models\Save;
 use App\Models\Saving_mod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 use Twilio\Rest\Client;
 
 class UserController extends Controller
@@ -15,15 +16,50 @@ class UserController extends Controller
     {
         if(Auth::user()->user_type=='0')
         {
-            $data= saving_mod::all();
+            $data= saving_mod::paginate(3);
 
-            return view('user.saving',compact('data'));
+            $user=auth()->user();
+
+            $count=save::where('phone',$user->phone)->count();
+
+            return view('user.saving',compact('data','count'));
         }
         else
         {
             return view('admin.index');
         }
         
+    }
+
+    // mbr saving
+    public function mbrsave(Request $request)
+    {
+        $data=new mbrsave;   
+    
+
+        $data->saving_typ=$request->saving_typ;
+
+        $data->date=$request->date;
+
+        $data->amount=$request->amount;
+
+        $data->save();
+
+        return redirect()->back();
+    }
+    
+
+
+    // swsaving
+    public function swsaving()
+    {
+        $user=auth()->user();
+
+        $save=save::where('phone',$user->phone)->get();
+
+        $count=save::where('phone',$user->phone)->count();
+
+        return view('user.swsaving',compact('save','count'));
     }
 
     public function user_loan()
@@ -38,9 +74,14 @@ class UserController extends Controller
 
     public function showsaving()
     {
-        $data=Saving_mod::all();
+        
+        $data= saving_mod::paginate(3);
 
-        return view('user.saving',compact('data'));
+        $user=auth()->user();
+
+        $count=save::where('phone',$user->phone)->count();
+
+        return view('user.saving',compact('data','count'));
     }
 
     public function sendsms(Request $request)

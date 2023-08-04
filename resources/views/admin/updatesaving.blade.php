@@ -4,8 +4,10 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
+
+  <base href="/public">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Table Banking</title>
+  <title>Madaraka Day</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="admin/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="admin/vendors/base/vendor.bundle.base.css">
@@ -42,7 +44,7 @@
                 <div class="d-flex justify-content-between align-items-end flex-wrap">
                   
                   </button>
-                  <button class="btn btn-success mt-2 mt-xl-0">Show Savings</button>
+                  <button class="btn btn-success mt-2 mt-xl-0">Update Savings</button>
                 </div>
               </div>
             </div>
@@ -51,80 +53,85 @@
 
           <div class="container">
             <div class="card">
-                <div class="card-title text-center pt-10 mt-10">
-                    <h1>Savings Categories</h1>
-                </div>
-                
-                <div class="card-body text-center">
+                <div class="card-body">
 
-                @if(session()->has('message'))
+                <style>
+                  .title{
+                    color:black; 
+                    padding-top: 25px; 
+                    font-size: 25px
+                  }
+                  label{
+                    display: inline-block;
+                    width: 200px;
+                  }
+                  .btn{
+                    background-color: aquamarine;
+                  }
+                  .btn:hover{
+                    text-transform: uppercase;
+                    color: green;
+                  }
+
+                </style>
+                  <p class="card-title text-center">Update Saving</p>
+
+                  <div class="container" align="center">
+
+                    <form action="{{url('updsaving',$data->id)}}" method="post" enctype="multipart/form-data">
+
+                    @if(session()->has('message'))
 
               
-                  <div class="alert alert-success">
+                      <div class="alert alert-success">
 
-                  {{session()->get('message')}}
-                  
-                    <button type="button" class="close" data-dismiss="alert">X</button>               
-                    
-                  </div>
-                @endif
+                      {{session()->get('message')}}
+                      
+                        <button type="button" class="close" data-dismiss="alert">X</button>               
+                        
+                      </div>
+                    @endif
 
-                    <table>
-                        <tr>
-                            <th width="100">Title</th>
-                            <th width="100">Description</th>
-                            <th width="100">Amount</th>
-                            <th width="100">Image</th>
-                            <th width="100">Update</th>
-                            <th width="100">Delete</th>
-                        </tr>
+                    @csrf
 
-                        @foreach($data as $show_savings)
-                        <tr>
-                            <td width="100">{{$show_savings->title}}</td>
-                            <td width="100">{{$show_savings->description}}</td>
-                            <td width="100">{{$show_savings->amount}}</td>
-                            <td width="100">
-                                <img src="/savingmod/{{$show_savings->image}}" alt="">
-                            </td>
-
-                            <td>
-                              <a class="btn btn-primary" href="{{url('updatesaving',$show_savings->id)}}">Update</a>
-                            </td>
-                            <td>
-                              <a class="btn btn-danger" href="{{url('deletesaving',$show_savings->id)}}">Delete</a>
-                            </td>
-
-                        </tr>
-
-                        @endforeach
-
-                        <div class="d-flex justify-content-center">
-                          {!! $data->links()!!}
-
+                        <div style="padding:15px">
+                        <label>Title</label>
+                          <input type="text" name="title" required value="{{$data->title}}">  
                         </div>
-                    </table>
+
+                        <div style="padding: 15px;">
+                          <label>Description</label>
+                          <input type="text" name="description" required value="{{$data->description}}">
+                        </div>
+
+                        <div style="padding: 15px;">
+                          <label>Amount</label>
+                          <input type="number" name="amount" required value="{{$data->amount}}">
+                        </div>
+
+                        <div style="padding: 15px;">
+                          <label>Old Image</label>
+                          <img src="/savingmod/{{$data->image}}" alt="" height="100px;" width="100">
+                        </div>
+
+                        <div style="padding: 15px;">
+                        <label>Change the Image</label>
+                          <input type="file" name="file">
+                        </div>
+
+                        <div style="padding: 15px;">
+                          <input class="btn" type="submit">
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
                 </div>
-
             </div>
-
           </div>
-
-
-          
-          
-          
-
-
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="#" target="_blank">Jeremiah Mtai </a>2021</span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="#" target="_blank"> Micro  </a> SACCO</span>
-        </div>
-        </footer>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

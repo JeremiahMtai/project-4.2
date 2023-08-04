@@ -9,7 +9,7 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Madaraka Day</title>
+    <title>Table Banking</title>
 
     <!-- Bootstrap core CSS -->
     <link href="mada/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@ https://templatemo.com/tm-545-finance-business
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="#about">About Us</a>
               </li>  
               <li class="nav-item">
                 <a class="nav-link" href="#services">Our Services</a>
@@ -96,7 +96,7 @@ https://templatemo.com/tm-545-finance-business
                 <div class="text-content">
                   <h6>we are ready to help you</h6>
                   <h4>Financial Analysis<br>&amp; Consulting</h4>
-                  <p>This finance HTML template is 100% free of charge provided by TemplateMo for everyone. This is a multiple-page version with different HTML pages. <a href="one-page.html">One-page version</a> is available as of 2021 February.</p>
+                  <p>This finance HTML template is 100% free of charge provided by TemplateMo for everyone. This is a multiple-page version with different HTML pages.</p>
                   <a href="contact.html" class="filled-button">contact us</a>
                 </div>
             </div>
@@ -197,7 +197,7 @@ https://templatemo.com/tm-545-finance-business
           <div class="col-md-6">
             <div class="left-content">
               <span>Lorem ipsum dolor sit amet</span>
-              <h2>Our solutions for your <em>business growth</em></h2>
+              <h2>Our solutions for your <em>Saving and Loan Analysis</em></h2>
               <p>Pellentesque ultrices at turpis in vestibulum. Aenean pretium elit nec congue elementum. Nulla luctus laoreet porta. Maecenas at nisi tempus, porta metus vitae, faucibus augue. 
               <br><br>Fusce et venenatis ex. Quisque varius, velit quis dictum sagittis, odio velit molestie nunc, ut posuere ante tortor ut neque.</p>
               <a href="" class="filled-button">Read More</a>
@@ -360,8 +360,9 @@ https://templatemo.com/tm-545-finance-business
         </div>
       </div>
     </div>
+    <br>
 
-    <div class="partners">
+    {{-- <div class="partners">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -391,14 +392,14 @@ https://templatemo.com/tm-545-finance-business
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
 
     <!-- Footer Starts Here -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 footer-item">
+    {{-- <footer> --}}
+      {{-- <div class="container">
+        <div class="row"> --}}
+          {{-- <div class="col-md-3 footer-item">
             <h4>Finance Business</h4>
             <p>Vivamus tellus mi. Nulla ne cursus elit,vulputate. Sed ne cursus augue hasellus lacinia sapien vitae.</p>
             <ul class="social-icons">
@@ -407,18 +408,18 @@ https://templatemo.com/tm-545-finance-business
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fa fa-behance"></i></a></li>
             </ul>
-          </div>
-          <div class="col-md-3 footer-item">
+          </div> --}}
+
+          {{-- <div class="col-md-3 footer-item">
             <h4>Useful Links</h4>
             <ul class="menu-list">
-              <li><a href="#">Vivamus ut tellus mi</a></li>
-              <li><a href="#">Nulla nec cursus elit</a></li>
-              <li><a href="#">Vulputate sed nec</a></li>
-              <li><a href="#">Cursus augue hasellus</a></li>
-              <li><a href="#">Lacinia ac sapien</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#">Contact Us</a></li>
             </ul>
-          </div>
-          <div class="col-md-3 footer-item">
+          </div> --}}
+
+          {{-- <div class="col-md-3 footer-item">
             <h4>Additional Pages</h4>
             <ul class="menu-list">
               <li><a href="#">About Us</a></li>
@@ -427,8 +428,8 @@ https://templatemo.com/tm-545-finance-business
               <li><a href="#">Contact Us</a></li>
               <li><a href="#">Privacy Policy</a></li>
             </ul>
-          </div>
-          <div class="col-md-3 footer-item last-item">
+          </div> --}}
+          {{-- <div class="col-md-3 footer-item last-item">
             <h4>Contact Us</h4>
             <div class="contact-form">
               <form id="contact footer-contact" action="" method="post">
@@ -456,10 +457,10 @@ https://templatemo.com/tm-545-finance-business
                 </div>
               </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+          </div> --}}
+        {{-- </div>
+      </div> --}}
+    {{-- </footer> --}}
     
     <div class="sub-footer">
       <div class="container">
@@ -467,7 +468,7 @@ https://templatemo.com/tm-545-finance-business
           <div class="col-md-12">
             <p>Copyright &copy; 2023 Micro SACCO  Co, Ltd.
             
-            - Designws By: <a rel="nofollow noopener" href="#" target="_blank">Jeremiah Mtai</a></p>
+             <a rel="nofollow noopener" href="#" target="_blank">Mtai Jeremiah</a></p>
           </div>
         </div>
       </div>

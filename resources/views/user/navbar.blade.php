@@ -6,7 +6,7 @@
                 <span class="mdi mdi-menu"></span>
             </button>
             <ul class="navbar-nav navbar-nav-right float-right">
-     
+                
                 <x-app-layout>
                 </x-app-layout>
 

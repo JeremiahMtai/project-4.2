@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Table Banking</title>
+  <title>Madaraka Day</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="admin/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="admin/vendors/base/vendor.bundle.base.css">
@@ -22,11 +22,11 @@
   <div class="container-scroller">
     
     <!-- partial:partials/_navbar.html -->
-    @include('admin.navbar')
+    @include('user.navbar')
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('admin.sidebar')
+      @include('user.sidebar')
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -42,7 +42,7 @@
                 <div class="d-flex justify-content-between align-items-end flex-wrap">
                   
                   </button>
-                  <button class="btn btn-success mt-2 mt-xl-0">Show Savings</button>
+                  <!-- <button class="btn btn-success mt-2 mt-xl-0">Show Savings</button> -->
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
           <div class="container">
             <div class="card">
                 <div class="card-title text-center pt-10 mt-10">
-                    <h1>Savings Categories</h1>
+                    <h1>Show Total Savings</h1>
                 </div>
                 
                 <div class="card-body text-center">
@@ -69,41 +69,43 @@
                   </div>
                 @endif
 
-                    <table>
+                <table>
                         <tr>
-                            <th width="100">Title</th>
-                            <th width="100">Description</th>
+                            <th width="100">Name</th>
+                            <th width="100">Saving Type</th>
                             <th width="100">Amount</th>
-                            <th width="100">Image</th>
-                            <th width="100">Update</th>
-                            <th width="100">Delete</th>
+                            {{-- <th width="100">Delete</th> --}}
                         </tr>
 
-                        @foreach($data as $show_savings)
+                       @foreach($save as $saves)
                         <tr>
-                            <td width="100">{{$show_savings->title}}</td>
-                            <td width="100">{{$show_savings->description}}</td>
-                            <td width="100">{{$show_savings->amount}}</td>
-                            <td width="100">
-                                <img src="/savingmod/{{$show_savings->image}}" alt="">
-                            </td>
-
-                            <td>
-                              <a class="btn btn-primary" href="{{url('updatesaving',$show_savings->id)}}">Update</a>
-                            </td>
-                            <td>
-                              <a class="btn btn-danger" href="{{url('deletesaving',$show_savings->id)}}">Delete</a>
-                            </td>
+                            <td width="100">{{$saves->name}}</td>
+                            <td width="100">{{$saves->saving_type}}</td>
+                            <td width="100">{{$saves->amount}}</td>
 
                         </tr>
-
                         @endforeach
+                        
 
-                        <div class="d-flex justify-content-center">
-                          {!! $data->links()!!}
-
+                       
                         </div>
-                    </table>
+                  </table><br>
+                    <div class="container">
+                      <div class="card">
+                        {{-- @php
+                        $total = 0;
+                        foreach ($save as $saves) {
+                            $total += $saves->amount;
+                        }
+                        @endphp --}}
+
+                        <div class="card" style="display: inline-block;">
+                          <h5 class="card-header bg-primary" style="align-items: flex-end; width: 50%">Total</h5>
+                          {{-- <div class="card-body p-3" style="align-items: flex-start;">Ksh. {{ number_format($total) }}</div> --}}
+                          {{-- <div class="card-body p-3" style="align-items: flex-start;">Ksh. {{$total}}</div> --}}
+                        </div>
+                      </div>
+                    </div>
                 </div>
 
             </div>
