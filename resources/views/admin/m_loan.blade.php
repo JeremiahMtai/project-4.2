@@ -40,7 +40,8 @@
                     <h2>Welcome back, {{ Auth::user()->name }}</h2>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-end flex-wrap">
+
+                {{-- <div class="d-flex justify-content-between align-items-end flex-wrap">
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
                     <i class="mdi mdi-download text-muted"></i>
                   </button>
@@ -51,12 +52,13 @@
                     <i class="mdi mdi-plus text-muted"></i>
                   </button>
                   <button class="btn btn-danger mt-2 mt-xl-0">Members Loans</button>
-                </div>
+                </div> --}}
+
               </div>
             </div>
           </div>
           
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body dashboard-tabs p-0">
@@ -220,19 +222,20 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
+
           <div class="row">
             <div class="col-md-7 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">View Your Loans</p>
-                  
-                  
 
+                  <h1 style="color: red">Coming Soon......</h1>
                 </div>
               </div>
             </div>
-            <div class="col-md-5 grid-margin stretch-card">
+
+            {{-- <div class="col-md-5 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Loans</p>
@@ -243,7 +246,8 @@
                 </div>
                 <canvas id="total-sales-chart"></canvas>
               </div>
-            </div>
+            </div> --}}
+
           </div>
 
         </div>

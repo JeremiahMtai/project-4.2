@@ -22,15 +22,15 @@
   <div class="container-scroller">
     
     <!-- partial:partials/_navbar.html -->
-    @include('admin.navbar')
+    @include('user.navbar')
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('admin.sidebar')
+      @include('user.sidebar')
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-
+          
         <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="d-flex justify-content-between flex-wrap">
@@ -41,43 +41,85 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-end flex-wrap">
                   
-                  <button class="btn btn-info mt-2 mt-xl-0">List of Group Members</button>
+                  </button>
+                  <!-- <button class="btn btn-success mt-2 mt-xl-0">Show Savings</button> -->
                 </div>
-              </div>    
+              </div>
             </div>
           </div>
+          <br><hr style="border : 1px solid black;">    
 
-        <div>
-            <!-- <h1 style="text-transform: uppercase; font-weight: bold; background-color: gray; width: 100px;">Customer Order</h1> -->
-            <br>
+          <div class="container">
+            <div class="card">
+                <div class="card-title text-center pt-10 mt-10">
+                    <h1>Show Total Savings</h1>
+                </div>
+                
+                <div class="card-body text-center">
+                  
 
-            <h1>Data</h1>
+                @if(session()->has('message'))
 
-              <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                </tr>
-                @foreach ($data as $item)
+              
+                  <div class="alert alert-success">
+
+                  {{session()->get('message')}}
+                  
+                    <button type="button" class="close" data-dismiss="alert">X</button>               
+                    
+                  </div>
+                @endif
+
+                <table>
                     <tr>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->phone }}</td>
-                        <td>{{ $item->address }}</td>
+                        <th width="100">Saving Type</th>
+                        <th width="100">Date</th>
+                        <th width="100">Amount</th>
+                        <th width="100">Action</th>
+                    </tr>
+
+                    {{-- @if(is_array($totalSavings) || is_object($totalSavings)) --}}
+                        @foreach($totalSavings as $mbrsaves)
+                    <tr>
+                        <td width="100">{{$mbrsaves->saving_typ}}</td>
+                        <td width="100">{{$mbrsaves->date}}</td>
+                        <td width="100">{{$mbrsaves->amount}}</td>
                         <td>
-                          <a class="btn btn-danger" href="{{url('deletemember',$item->id)}}">Delete</a>
+                          <a class="btn btn-danger" href="{{url('deletembrsave',$mbrsaves->id)}}">Delete</a>
                         </td>
                     </tr>
-                @endforeach
-              </table>
-        </div>
+                        @endforeach
+                    {{-- @endif --}}
 
-        
-                 
-        
+                    </div>
+                </table><br>
+                    <div class="container">
+                      <div class="card">
+                        {{-- @php
+                        $total = 0;
+                        foreach ($save as $saves) {
+                            $total += $saves->amount;
+                        }
+                        @endphp --}}
+
+                        <div class="card" style="display: inline-block;">
+                          <h5 class="card-header bg-primary" style="align-items: flex-end; width: 50%">Total</h5>
+                          {{-- <div class="card-body p-3" style="align-items: flex-start;">Ksh. {{ number_format($total) }}</div> --}}
+                          {{-- <div class="card-body p-3" style="align-items: flex-start;">Ksh. {{$total}}</div> --}}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+
+          </div>
+
+
+          
+          
+          
+
 
         </div>
         <!-- content-wrapper ends -->
@@ -85,15 +127,13 @@
         <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
           <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="#" target="_blank">Jeremiah Mtai </a>2021</span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Micro  </a> SACCO</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="#" target="_blank"> Micro  </a> SACCO</span>
         </div>
         </footer>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
     </div>
-
-    
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->

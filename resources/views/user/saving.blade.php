@@ -45,7 +45,7 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-end flex-wrap">
-                  <a href="{{url('swsaving')}}">Total Savings [ {{$count}} ]</a>
+                  <a href="{{url('total-saving')}}">Total Savings [ {{$count}} ]</a>
                 </div>
               </div>
             </div>
@@ -75,18 +75,18 @@
               <div class="product-item">
                 <img style="height: 200px; width: 200px"  src="/savingmod/{{($saving_mod->image)}}" alt=""><br>
                 <div class="down-content">
-                  <a href="#"><h4>{{($saving_mod->title)}}</h4></a><br>
-                  <h6>{{($saving_mod->amount)}}</h6><br>
+                  <a href="#"><h4>{{($saving_mod->title)}}</h4></a><br><br>
+                  {{-- <h6>{{($saving_mod->amount)}}</h6><br> --}}
                   <p>{{($saving_mod->description)}}</p><br>
                 </div>
                 <div>
                   <form action="{{url('save',$saving_mod->id)}}" method="POST">
                     @csrf
 
-                    <input type="number" value="10" min="10" style="width:100px" class="form-control" name="">
+                    {{-- <input type="number" value="10" min="10" style="width:100px" class="form-control" name=""> --}}
                     <br>
 
-                    <input class="btn btn-primary" type="submit" value="Save" style="color: blue;">
+                    {{-- <input class="btn btn-primary" type="submit" value="Save" style="color: blue;"> --}}
                   </form>
                 </div>
               </div>
@@ -122,7 +122,7 @@
                 <label for="amount">Amount:</label>
                 <input type="number"  name="amount" id="amount" required><br><br>
 
-                <input type="submit" class="btn btn-primary" value="Register">
+                <input type="submit" class="btn btn-primary" value="Send" style="text-transform: uppercase">
             </form>
           </div>
 

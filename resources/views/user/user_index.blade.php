@@ -39,7 +39,8 @@
                     <h2>Welcome back, {{ Auth::user()->name }}</h2>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-end flex-wrap">
+
+                {{-- <div class="d-flex justify-content-between align-items-end flex-wrap">
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
                     <i class="mdi mdi-download text-muted"></i>
                   </button>
@@ -50,7 +51,8 @@
                     <i class="mdi mdi-plus text-muted"></i>
                   </button>
                   <button class="btn btn-primary mt-2 mt-xl-0">Generate report</button>
-                </div>
+                </div> --}}
+
               </div>
             </div>
           </div>

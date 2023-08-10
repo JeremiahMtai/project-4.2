@@ -18,14 +18,15 @@
               <span class="menu-title">Loan</span>
             </a>
           </li>
-          <li class="nav-item">
+
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{ url('profile')}}">
               <i class="mdi mdi-emoticon menu-icon"></i>
               <span class="menu-title">Profile</span>
             </a>
-          </li>
+          </li> --}}
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{ url('sendsms')}}">
               <i class="mdi mdi-emoticon menu-icon"></i>
               <span class="menu-title">SMS Confirmation</span>
@@ -37,6 +38,7 @@
               <i class="mdi mdi-emoticon menu-icon"></i>
               <span class="menu-title">M-Pesa API</span>
             </a>
-          </li>
+          </li> --}}
+
         </ul>
       </nav>

@@ -28,17 +28,20 @@
           </li>
 
 
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('m_loan')}}">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Loans</span>
-            </a>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="{{ url('members')}}">
               <i class="mdi mdi-emoticon menu-icon"></i>
               <span class="menu-title">Members</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('m_loan')}}">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Loans</span>
+            </a>
+          </li>
+          
         </ul>
       </nav>

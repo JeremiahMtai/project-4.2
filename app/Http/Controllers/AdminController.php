@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mbrsave;
 use App\Models\Member;
 use App\Models\Saving_mod;
 use App\Models\Save;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -166,4 +168,34 @@ class AdminController extends Controller
 
         return view('admin.members',compact('data'));
     }
+
+    public function showData()
+    {
+        $data = User::all();
+
+        return view('admin.members', compact('data'));
+    }
+
+    public function mbrsaving ()
+    {
+        $mbrsaving = Mbrsave::all();
+
+
+       return view('admin.mbr_saving', ['totalSavings' => $mbrsaving]);
+    }
+
+
+    // delete member
+    public function deletemember($id)
+    {
+        $data = user::find($id);
+
+        if ($data) {
+            $data->delete();
+            return redirect()->back()->with('message', 'Saving Deleted Successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Saving not found!');
+        }
+    }
 }
+

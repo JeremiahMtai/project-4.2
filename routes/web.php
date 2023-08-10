@@ -26,6 +26,8 @@ Route::get('/', function () {
 Route::controller(HomeController::class)->group(function (){
     Route::get('/redirect',[HomeController::class,"Redirect"]);
 
+   
+
 });
 
 Route::controller(UserController::class)->group(function (){
@@ -45,7 +47,10 @@ Route::controller(UserController::class)->group(function (){
     Route::post('/mbrsave', [UserController::class, 'mbrsave'])->name('user.saving');
 
     // total saving count
-    Route::get('/total-savings', [UserController::class, 'totalSavings'])->name('total-savings');
+    Route::get('/total-saving', [UserController::class, 'totalSavings'])->name('total-savings');
+
+    // delete saving
+    Route::get('/deletembrsave/{id}',[UserController::class,"deletembrsave"]);
 
     
 });
@@ -85,8 +90,18 @@ Route::controller(AdminController::class)->group(function (){
     // show members
     Route::get('/members',[AdminController::class,"members"]);
 
+     // show members saving
+     Route::get('/mbr_saving',[AdminController::class,"mbrsaving"]);
+
     // add member
     Route::post('/addmembers',[AdminController::class,"addmembers"]);
+
+
+    // show members data
+    Route::get('/members', [AdminController::class, 'showData'])->name('admin.members');
+
+     // delete member
+     Route::get('/deletemember/{id}',[AdminController::class,"deletemember"]);
 
 });
 

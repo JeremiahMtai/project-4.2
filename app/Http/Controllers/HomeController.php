@@ -42,4 +42,11 @@ class HomeController extends Controller
         }
         
     }
+
+    // public function showData()
+    // {
+    //     $data = user::all();
+
+    //     return view('admin.members', compact('user'));
+    // }
 }

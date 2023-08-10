@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mbrsave;
 use App\Models\Save;
 use App\Models\Saving_mod;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Twilio\Rest\Client;
@@ -20,7 +21,7 @@ class UserController extends Controller
 
             $user=auth()->user();
 
-            $count=save::where('phone',$user->phone)->count();
+            $count=user::where('phone',$user->phone)->count();
 
             return view('user.saving',compact('data','count'));
         }
@@ -47,20 +48,36 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    // show mbr saving
+    public function totalSavings()
+    {
+        // Calculate the total savings amount
+        // $totalSavings = mbrsave::sum('amount');
+
+        $totalSavings = mbrsave::all();
+
+        // return view('savings.index', compact('savings'));
+
+        // Return the Blade view with the total savings count
+        return view('user.total-saving', ['totalSavings' => $totalSavings]);
+
+
+    }
     
 
 
     // swsaving
-    public function swsaving()
-    {
-        $user=auth()->user();
+    // public function swsaving()
+    // {
+    //     $user=auth()->user();
 
-        $save=save::where('phone',$user->phone)->get();
+    //     $save=user::where('phone',$user->phone)->get();
 
-        $count=save::where('phone',$user->phone)->count();
+    //     $count=user::where('phone',$user->phone)->count();
 
-        return view('user.swsaving',compact('save','count'));
-    }
+    //     return view('user.total-saving',compact('save','count'));
+    // }
 
     public function user_loan()
     {
@@ -81,7 +98,7 @@ class UserController extends Controller
 
         $count=save::where('phone',$user->phone)->count();
 
-        return view('user.saving',compact('data','count'));
+        return view('user.total-saving',compact('data','count'));
     }
 
     public function sendsms(Request $request)
@@ -121,6 +138,19 @@ class UserController extends Controller
             }
         }
         
+    }
+
+    // delete savings
+    public function deletembrsave($id)
+    {
+        $data = mbrsave::find($id);
+
+        if ($data) {
+            $data->delete();
+            return redirect()->back()->with('message', 'Saving Deleted Successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Saving not found!');
+        }
     }
         
 

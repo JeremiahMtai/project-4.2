@@ -32,8 +32,30 @@
         <div class="content-wrapper">
           
        
-          <h1>Member Saving</h1>
-          <p>Mmmmmmmmmmmmmmmmmmmmmmmmmmmbbbbbbbbbbbbbbbbbbbrrrrrrrrrrrrrr</p>
+          <h1 style="text-align: center">Member Saving</h1><br><br>
+
+          <table style="text-align: center">
+            <tr>
+                <th width="100">Saving Type</th>
+                <th width="100">Date</th>
+                <th width="100">Amount</th>
+                <th width="100">Action</th>
+            </tr>
+
+            {{-- @if(is_array($totalSavings) || is_object($totalSavings)) --}}
+                @foreach($totalSavings as $mbrsaves)
+            <tr>
+                <td width="100">{{$mbrsaves->saving_typ}}</td>
+                <td width="100">{{$mbrsaves->date}}</td>
+                <td width="100">{{$mbrsaves->amount}}</td>
+                <td width="100">Update/Delete</td>
+            </tr>
+                @endforeach
+            {{-- @endif                         --}}
+
+            </div>
+        </table><br>
+          
           
           
 
