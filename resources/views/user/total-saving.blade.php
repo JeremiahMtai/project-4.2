@@ -70,11 +70,11 @@
                   </div>
                 @endif
 
-                <table>
+                <table class="table">
                     <tr>
                         <th width="100">Saving Type</th>
-                        <th width="100">Date</th>
                         <th width="100">Amount</th>
+                        <th width="100">Date</th>
                         <th width="100">Action</th>
                     </tr>
 
@@ -82,10 +82,10 @@
                         @foreach($totalSavings as $mbrsaves)
                     <tr>
                         <td width="100">{{$mbrsaves->saving_typ}}</td>
-                        <td width="100">{{$mbrsaves->date}}</td>
                         <td width="100">{{$mbrsaves->amount}}</td>
+                        <td width="100">{{$mbrsaves->date}}</td>
                         <td>
-                          <a class="btn btn-danger" href="{{url('deletembrsave',$mbrsaves->id)}}">Delete</a>
+                          <a class="btn btn-danger" href="{{url('deletembrsave',$mbrsaves->id)}}" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
                         </td>
                     </tr>
                         @endforeach
@@ -93,8 +93,33 @@
 
                     </div>
                 </table><br>
-                    <div class="container">
-                      <div class="card">
+
+                <div class="container">
+                  <hr style="border:2px solid black;">
+                  @php
+                      $total = 0;
+        
+                      foreach ($totalSavings as $mbrsaves) {
+                          $total += $mbrsaves->amount;
+                      }
+                  @endphp
+                  <table class="table">
+                <tbody >
+                  <th scope="row" colspan=4 align='right'><b>TOTAL</b></th>
+                  <td>KSH. {{$total}} </td>
+              </table>
+                  
+                  <a href="#" class="btn btn-success">Check out with M-Pesa</a>
+                </div>
+
+                {{-- {{ route('mpesa.payment') }} --}}
+
+
+
+
+                <!-- End of Main Content -->
+                    {{-- <div class="container"> --}}
+                      {{-- <div class="card"> --}}
                         {{-- @php
                         $total = 0;
                         foreach ($save as $saves) {
@@ -102,8 +127,8 @@
                         }
                         @endphp --}}
 
-                        <div class="card" style="display: inline-block;">
-                          <h5 class="card-header bg-primary" style="align-items: flex-end; width: 50%">Total</h5>
+                        {{-- <div class="card" style="display: inline-block;"> --}}
+                          {{-- <h5 class="card-header bg-primary" style="align-items: flex-end; width: 50%">Total</h5> --}}
                           {{-- <div class="card-body p-3" style="align-items: flex-start;">Ksh. {{ number_format($total) }}</div> --}}
                           {{-- <div class="card-body p-3" style="align-items: flex-start;">Ksh. {{$total}}</div> --}}
                         </div>

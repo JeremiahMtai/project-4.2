@@ -197,5 +197,13 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'Saving not found!');
         }
     }
+
+    public function updatembrsave($id)
+    {
+        $data = mbrsave::find($id);
+        return view('admin.update_mbrsave',compact('data'));
+        
+    }
+    
 }
 

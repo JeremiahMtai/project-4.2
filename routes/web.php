@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MpesaContrller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SmsController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,9 @@ Route::controller(UserController::class)->group(function (){
 
     // delete saving
     Route::get('/deletembrsave/{id}',[UserController::class,"deletembrsave"]);
+
+    // initiate payment
+    // Route::get('/payment',[UserController::class,"payment"]);
 
     
 });
@@ -103,13 +107,33 @@ Route::controller(AdminController::class)->group(function (){
      // delete member
      Route::get('/deletemember/{id}',[AdminController::class,"deletemember"]);
 
-});
-
-
-Route::controller(MpesaContrller::class)->group(function (){
-    Route::get('/mpesa',[MpesaContrller::class,"mpesa"]);
+    //  update members saves
+    Route::get('/update_mbrsave/{id}',[AdminController::class,"updatembrsave"]);
+    
 
 });
+
+// Report controller
+// Route::controller(AdminController::class)->group(function (){
+    Route::get('/report.member_saving', [ReportController::class,"generateReport"]);
+
+// });
+
+
+// Route::controller(MpesaContrller::class)->group(function (){
+//     Route::get('/mpesa',[MpesaContrller::class,"mpesa"]);
+
+// });
+
+// MPESA ROUTES
+// Route::controller(MpesaContrller::class)->group(function (){
+
+// Route::post('/payment', [MpesaContrller::class,"makePayment"]);
+// });
+
+
+// Route::post('/payment', 'MpesaController@initiatePayment')->name('initiate');
+
 
 
 
@@ -132,3 +156,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+

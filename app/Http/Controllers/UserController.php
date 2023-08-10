@@ -152,6 +152,11 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Saving not found!');
         }
     }
+
+    public function payment()
+    {
+        return view('user.payment');
+    }
         
 
 }

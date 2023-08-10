@@ -78,7 +78,7 @@
 
                   <div class="container" align="center">
 
-                    <form action="{{url('updsaving',$data->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{url('update_mbrsave',$data->id)}}" method="post">
 
                     @if(session()->has('message'))
 
@@ -93,35 +93,22 @@
                     @endif
 
                     @csrf
-
-                        <div style="padding:15px">
-                        <label>Title</label>
-                          <input type="text" name="title" required value="{{$data->title}}">  
-                        </div>
-
-                        <div style="padding: 15px;">
-                          <label>Description</label>
-                          <input type="text" name="description" required value="{{$data->description}}">
-                        </div>
-
-                        <div style="padding: 15px;">
-                          <label>Amount</label>
-                          <input type="number" name="amount" required value="{{$data->amount}}">
-                        </div>
-
-                        <div style="padding: 15px;">
-                          <label>Old Image</label>
-                          <img src="/savingmod/{{$data->image}}" alt="" height="100px;" width="100">
-                        </div>
-
-                        <div style="padding: 15px;">
-                        <label>Change the Image</label>
-                          <input type="file" name="file">
-                        </div>
-
-                        <div style="padding: 15px;">
-                          <input class="btn" type="submit">
-                        </div>
+        
+                        <label for="saving_typ">Saving Type:</label>
+                        <select name="saving_typ" id="saving_typ" required>
+                            <option value="Normal Saving">Normal Saving</option>
+                            <option value="Local Saving">Local Saving</option>
+                            <option value="Mwalimu Saving">Mwalimu Saving</option>
+                            <!-- Add more options as needed -->
+                        </select><br><br>
+        
+                        <label for="date">Date:</label>
+                        <input type="date" name="date"><br><br>
+        
+                        <label for="amount">Amount:</label>
+                        <input type="number"  name="amount" id="amount" required><br><br>
+        
+                        <input type="submit" class="btn btn-primary" value="Send" style="text-transform: uppercase">
                       </form>
 
                     </div>
